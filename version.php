@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'qformat_multichoiceset';
-$plugin->version   = 2018030100;
+$plugin->version   = 2018030200;
 $plugin->requires  = 2016120500;
 
 $plugin->release   = '1.0';
@@ -34,4 +34,5 @@ $plugin->maturity  = MATURITY_ALPHA;
 
 $plugin->dependencies = array(
     'qformat_xml' => 2016120500,
+    'qtype_multichoiceset' => 2016012300,
 );
