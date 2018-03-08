@@ -24,6 +24,10 @@ Feature: Test importing questions with multichoiceset to change question type
     And I upload "question/format/multichoiceset/tests/fixtures/multichoice.xml" file to "Import" filemanager
     And I press "id_submitbutton"
     Then I should see "Parsing questions from import file."
-    And I should see "Importing 1 question from file"
+    And I should see "Importing 1 questions from file"
     When I press "Continue"
     Then I should see "Multi-choice-001"
+    And I click on "Edit" "link" in the "Multi-choice-001" "table_row"
+    And I should not see "Editing a Multiple choice question"
+    And I should see "Editing an All-or-Nothing Multiple Choice Question"
+    
