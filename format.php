@@ -48,14 +48,16 @@ class qformat_multichoiceset extends qformat_xml {
     // Override to change question type to multichoiceset.
     public function import_multichoice($question) {
         $qo = parent::import_multichoice($question);
-        $qo->qtype = 'multichoiceset';
-        for ($k = 0; $k < count($qo->answer); $k++) {
-            if (!empty($qo->fraction[$k]) && (float)$qo->fraction[$k] >= 0.000001) {
-                $qo->correctanswer[$k] = true;
-                $qo->fraction[$k] = 1.0;
-            } else {
-                $qo->correctanswer[$k] = false;
-                $qo->fraction[$k] = 0.0;
+        if (array_key_exists('multichoiceset', core_component::get_plugin_list('qtype'))) {
+            $qo->qtype = 'multichoiceset';
+            for ($k = 0; $k < count($qo->answer); $k++) {
+                if (!empty($qo->fraction[$k]) && (float)$qo->fraction[$k] >= 0.000001) {
+                    $qo->correctanswer[$k] = true;
+                    $qo->fraction[$k] = 1.0;
+                } else {
+                    $qo->correctanswer[$k] = false;
+                    $qo->fraction[$k] = 0.0;
+                }
             }
         }
         return $qo;
