@@ -25,3 +25,4 @@
 $string['pluginname'] = 'Import all or nothing format';
 $string['pluginname_help'] = 'This imports Moodle XML files, but changes all regular multichoice questions into all or nothing (multichoiceset) questions.';
 $string['pluginname_link'] = 'qformat/multichoiceset';
+$string['privacy:metadata'] = 'The Import all or nothing question format plugin does not store any personal data.';

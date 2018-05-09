@@ -15,24 +15,32 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Plugin for changing multichoice to multichoiceset when importing Moodle XML.
+ * Privacy Subsystem implementation for qformat_multichoiceset.
  *
  * @package    qformat_multichoiceset
- * @copyright  Jean-Michel Vedrine
+ * @copyright  2018 Jean-Michel Vedrine
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace qformat_multichoiceset\privacy;
+
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'qformat_multichoiceset';
-$plugin->version   = 2018050100;
-$plugin->requires  = 2016120500;
+/**
+ * Privacy Subsystem for qformat_multichoiceset implementing null_provider.
+ *
+ * @copyright  2018 Jean-Michel Vedrine
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
 
-$plugin->release   = '1.01';
-
-$plugin->maturity  = MATURITY_ALPHA;
-
-$plugin->dependencies = array(
-    'qformat_xml' => 2016120500,
-    'qtype_multichoiceset' => 2016012300,
-);
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}
