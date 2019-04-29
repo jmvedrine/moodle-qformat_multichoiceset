@@ -30,4 +30,3 @@ Feature: Test importing questions with multichoiceset to change question type
     And I click on "Edit" "link" in the "Multi-choice-001" "table_row"
     And I should not see "Editing a Multiple choice question"
     And I should see "Editing an All-or-Nothing Multiple Choice Question"
-    
